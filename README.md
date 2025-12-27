@@ -29,29 +29,29 @@ https://spotifysongfeaturesmlanddeeplearning-jsappudcn4wwalt5rz93tmo.streamlit.a
 This project predicts Spotify track popularity (0–100) using audio features provided by Spotify.
 It combines exploratory data analysis (EDA), classical machine learning, ensemble methods, and deep learning, all wrapped inside a fully interactive Streamlit web application.
 
-Users can:
-- Explore the dataset visually
-- Train and compare multiple models
-- Perform hyperparameter tuning
-- Generate predictions for new tracks
-- Interpret model behavior using SHAP explainability
+The app allows users to:
+- Explore and visualize audio feature data
+- Train and tune multiple models
+- Compare model performance across metrics
+- Track and benchmark model runs
+- Generate predictions for new tracks using trained models
 
 ---
 
 ## 🎯 Objectives
 
-- Understand which audio features influence track popularity
-- Compare traditional ML models vs deep learning
-- Build a production-style Streamlit app
-- Practice model tuning, evaluation, and explainability
+- Identify which audio features influence track popularity
+- Compare traditional ML models with ensemble and deep learning approaches
+- Build a production-style, interactive ML application
+- Practice hyperparameter tuning and performance evaluation
 - Deploy a reproducible ML application to Streamlit Cloud
 
 ---
 
 ## 📂 Project Structure
-- `spotify_song_features.py`
-- `spotify_songs.csv`
-- `requirements.txt`
+- **`spotify_song_features.py`**: The main streamlit application
+- **`spotify_songs.csv`**: A dataset file containing all songs and their features, including measurements.
+- **`requirements.txt`**: A text file of all Python libraries and modules utilized and deployed throughout the Spotify Streamlit project.
 
 ---
 
@@ -122,23 +122,23 @@ Inside the app, users can:
 - LightGBM
 - CatBoost
 
-Optional models are safely handled with `try/except` to avoid breaking deployment.
+Optional models are only enabled when dependencies are available, ensuring stable deployment.
 
 ---
 
 ## ⚙️ Hyperparameter Tuning
 
-This project implements `RandomizedSearchCV` with cross-validation for supported models.
+Hyperparameter tuning is implemented using **`RandomizedSearchCV`** with cross-validation for supported models.
 
 Examples of tuned parameters:
 - Tree depth, number of estimators
 - Learning rates
 - Regularization strength
-- KNN neighbors
-- SVR kernel parameters
+- KNN neighbor counts
+- SVR kernel and margin parameters
 
 Users can control:
-- Number of CV folds
+- Number of **CV** (cross-validation) folds
 - Number of tuning iterations
 - CPU parallelism (`n_jobs`)
 
@@ -146,36 +146,33 @@ Users can control:
 
 ## 📈 Model Evaluation
 
-Each trained model is evaluated using:
+Each trained model is evaluated using multiple metrics:
 - RMSE
 - MAE
 - MSE
 - R² Score
+- MAPE
+- Training time
 
 Additional features:
-- Actual vs Predicted plots
+- Actual vs. Predicted visualizations
 - Downloadable prediction CSVs
-- Run comparison dashboard
-- Model performance history
-
----
-
-## 🧠 Explainability with SHAP
-
-For tree-based models, the app provides:
-- Global SHAP feature importance
-- Fast sampling for performance
-- Visual interpretation of feature influence
+- Persistent run history
+- Side-by-side model comparison tables
+- Composite Score that balances:
+  * Predictive peformance (R^2, RMSE)
+  * Computational efficiency (training time)
+This enables identification of the **best overall model**, not just the most accurate one.
 
 ---
 
 ## 🔮 Interactive Prediction
 
 Users can:
-- Manually adjust audio features
+- Manually adjust audio feature values
 - Generate real-time popularity predictions
 - Clear or reuse previous predictions
-- Test multiple trained models
+- Test predictions across different trained models
 
 
 ---
@@ -187,7 +184,7 @@ Users can:
 - pandas / NumPy
 - scikit-learn
 - TensorFlow / Keras
-- SHAP
+- XGBoost/LightGBM/CatBoost
 - Matplotlib / Seaborn / Plotly
 - statsmodels (for OLS trendlines)
 
@@ -195,8 +192,8 @@ Users can:
 
 ## 🚀 Deployment
 
-- Fully deployed on Streamlit Cloud
-- Dependency-safe `requirements.txt`
+- Fully deployed on **Streamlit Cloud**
+- Dependency-safe **`requirements.txt`**
 - Environment conflicts resolved (TensorFlow + NumPy)
 - Optimized for cloud performance
 
@@ -205,18 +202,18 @@ Users can:
 ## 🧩 Key Takeaways
 
 - Built an end-to-end ML pipeline
-- Compared ML vs Deep Learning approaches
-- Implemented real-world model tuning
+- Compared classical ML, ensemble models, and deep learning
+- Implemented real-world hyperparameter tuning
 - Designed a modular, scalable Streamlit app
-- Solved real deployment and dependency issues
-- Applied explainable AI concepts (SHAP)
+- Solved practical deployment and dependency challenges
+- Applied rigorous model evaluation and benchmarking techniques
 
 ---
 
 ## 📌 Future Enhancements
 
 - Feature engineering (e.g., genre encoding)
-- Classification version (Hit vs Non-Hit)
+- Classification version (Hit vs. Non-Hit)
 - Model persistence & reload
 - User-uploaded CSV support
 - Time-based popularity prediction

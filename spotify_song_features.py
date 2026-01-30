@@ -1,6 +1,4 @@
-# ============================================================
 # Spotify Track Popularity Prediction App
-# ============================================================
 
 from __future__ import annotations
 
@@ -39,9 +37,8 @@ from tensorflow.keras.callbacks import EarlyStopping
 
 warnings.filterwarnings("ignore")
 
-# ----------------------------
+
 # Optional heavy deps (safe imports)
-# ----------------------------
 XGBOOST_AVAILABLE = False
 LGBM_AVAILABLE = False
 CATBOOST_AVAILABLE = False
@@ -65,9 +62,8 @@ except Exception:
     pass
 
 
-# ============================================================
+
 # Streamlit Config
-# ============================================================
 st.set_page_config(
     page_title="Spotify Popularity Predictor",
     page_icon="🎵",
@@ -78,7 +74,7 @@ st.title("🎵 Spotify Track Popularity Prediction")
 st.write("Predict Spotify track popularity using ML + Deep Learning with EDA and tuning.")
 
 
-# ============================================================
+
 # Constants / Feature Selection
 # ============================================================
 DEFAULT_FEATURE_COLS = [
@@ -856,4 +852,5 @@ if PAGE == "⚙️ Settings":
 - If your **Predict** button “disappears”: use **session_state** (this app does).
 - Too many dependencies can break Streamlit Cloud; keep optional imports behind try/except (this app does).
         """
+
     )
